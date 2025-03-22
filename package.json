@@ -1,34 +1,35 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-solanaoperations",
   "version": "0.1.0",
-  "description": "",
+  "description": "A custom n8n node to interact with the Solana blockchain. Supports sending SOL and tokens, wallet creation, balance checks, staking, and cryptographic operations.",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n-community-node-package",
+    "solana",
+    "web3",
+    "blockchain",
+    "solana-node",
+    "spl-token",
+    "wallet",
+    "stake"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://x.com/BrokenWatchCEO",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "BrokenWatch",
+    "email": "BrokenWatchceo@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/BrokenWatchCEO/n8n-nodes-solanaoperations.git"
   },
-  "engines": {
-    "node": ">=18.10",
-    "pnpm": ">=9.1"
-  },
-  "packageManager": "pnpm@9.1.4",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "build": "tsc && gulp build:icons",
     "dev": "tsc --watch",
     "format": "prettier nodes credentials --write",
     "lint": "eslint nodes credentials package.json",
     "lintfix": "eslint nodes credentials package.json --fix",
-    "prepublishOnly": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json"
+    "prepublishOnly": "npm run build && npm run lint -c .eslintrc.prepublish.js nodes credentials package.json"
   },
   "files": [
     "dist"
@@ -36,23 +37,31 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/SolanaApi.credentials.ts"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/SolanaOperations/SolanaOperations.node.ts"
     ]
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^7.15.0",
-    "eslint": "^8.56.0",
-    "eslint-plugin-n8n-nodes-base": "^1.16.1",
+    "@typescript-eslint/parser": "~5.45",
+    "eslint-plugin-n8n-nodes-base": "^1.11.0",
     "gulp": "^4.0.2",
-    "prettier": "^3.3.2",
-    "typescript": "^5.5.3"
+    "n8n-workflow": "^1.82.0",
+    "prettier": "^2.7.1",
+    "typescript": "^5.8.2"
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "@solana/spl-token": "^0.4.13",
+    "@solana/web3.js": "^1.98.0",
+    "axios": "^1.8.4",
+    "bs58": "^6.0.0",
+    "express": "^4.21.2",
+    "form-data": "^4.0.2",
+    "nock": "^14.0.1",
+    "ssh2": "^1.16.0"
   }
 }

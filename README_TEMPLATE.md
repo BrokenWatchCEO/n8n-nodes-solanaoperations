@@ -1,48 +1,99 @@
-# n8n-nodes-_node-name_
+# ![Solana Logo](https://solana.com/src/img/branding/solanaVerticalLogo.svg)
 
-This is an n8n community node. It lets you use _app/service name_ in your n8n workflows.
+# n8n-nodes-solanaoperations
 
-_App/service name_ is _one or two sentences describing the service this node integrates with_.
+This is an n8n community node. It lets you interact with the Solana blockchain directly from your n8n workflows.
+
+Solana is a high-performance blockchain platform known for fast and low-cost transactions. This node enables seamless interaction with Solana’s core features such as wallet creation, sending SOL or tokens, checking balances, staking, and cryptographic operations.
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
 [Installation](#installation)  
 [Operations](#operations)  
-[Credentials](#credentials)  <!-- delete if no auth needed -->  
+[Credentials](#credentials)  
 [Compatibility](#compatibility)  
-[Usage](#usage)  <!-- delete if not using this section -->  
+[Usage](#usage)  
 [Resources](#resources)  
-[Version history](#version-history)  <!-- delete if not using this section -->  
+[Version history](#version-history)  
+
+---
 
 ## Installation
 
 Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
+```bash
+npm install n8n-nodes-solanaoperations
+```
+
+Then restart your n8n instance.
+
+---
+
 ## Operations
 
-_List the operations supported by your node._
+This node currently supports the following operations:
+
+- ✅ **Send SOL** – Transfer native SOL tokens to another wallet
+- ✅ **Send Token** – Transfer SPL tokens to another address
+- ✅ **Get Balance** – Check SOL balance of an address
+- ✅ **Get Token Balance** – Retrieve the SPL token balance
+- ✅ **Get Multiple Token Balances** – Check multiple token balances in one go
+- ✅ **Get Transaction Details** – Fetch information of a specific transaction
+- ✅ **Get Account Info** – Inspect raw Solana account data
+- ✅ **Create Wallet** – Generate a new keypair (public/private)
+- ✅ **Sign Message** – Cryptographically sign messages using your wallet
+- ✅ **Verify Signature** – Verify if a signature is valid
+- ✅ **Stake SOL** – Create a stake account and delegate SOL to a validator
+- ✅ **Withdraw Stake** – Withdraw staked SOL from a stake account
+
+**Bonus**  
+A special option is included for **donating 1% of the transaction amount to the dev team**. This is enabled by default on `Send SOL` operations, but users can disable it as needed.
+
+---
 
 ## Credentials
 
-_If users need to authenticate with the app/service, provide details here. You should include prerequisites (such as signing up with the service), available authentication methods, and how to set them up._
+This node uses a custom credential type named **Solana API**, requiring:
+
+- **Private Key** – A base58-encoded private key (do not share!)
+- **RPC URL** – The Solana cluster URL (e.g., https://api.mainnet-beta.solana.com)
+
+Make sure your wallet is funded and the RPC is reachable.
+
+---
 
 ## Compatibility
 
-_State the minimum n8n version, as well as which versions you test against. You can also include any known version incompatibility issues._
+- ✅ Tested on n8n `1.83.2` (self-hosted)
+- ✅ Compatible with Mainnet, Devnet, and Testnet
+- ⚠️ No additional external API integrations required
+
+---
 
 ## Usage
 
-_This is an optional section. Use it to help users with any difficult or confusing aspects of the node._
+You can use this node to:
 
-_By the time users are looking for community nodes, they probably already know n8n basics. But if you expect new users, you can link to the [Try it out](https://docs.n8n.io/try-it-out/) documentation to help them get started._
+- Automate token transfers for on-chain payments
+- Build NFT or DeFi workflows
+- Monitor balances or stake SOL
+- Sign and verify messages for authentication or off-chain operations
+
+Great for Solana-based dApps or backend workflows needing secure wallet interactions.
+
+---
 
 ## Resources
 
-* [n8n community nodes documentation](https://docs.n8n.io/integrations/community-nodes/)
-* _Link to app/service documentation._
+* [n8n Community Nodes Documentation](https://docs.n8n.io/integrations/community-nodes/)
+* [Solana Developer Docs](https://solana.com/developers)
+* [Solana JSON-RPC Reference](https://docs.solana.com/developing/clients/jsonrpc-api)
+
+---
 
 ## Version history
 
-_This is another optional section. If your node has multiple versions, include a short description of available versions and what changed, as well as any compatibility impact._
-
-
+| Version | Changes |
+|--------|---------|
+| 0.1.0  | Initial release: SOL + token transfers, staking, balances, wallet ops, message signing, and donation feature |

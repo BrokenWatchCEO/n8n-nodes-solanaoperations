@@ -1,46 +1,113 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# ![Solana Logo](https://solana.com/src/img/branding/solanaVerticalLogo.svg)
 
-# n8n-nodes-starter
+# n8n-nodes-solanaoperations
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](n8n.io). It includes the node linter and other dependencies.
+This is an n8n community node. It lets you interact with the Solana blockchain directly from your n8n workflows.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+Solana is a high-performance blockchain platform known for fast and low-cost transactions. This node enables seamless interaction with Solana’s core features such as wallet creation, sending SOL or tokens, checking balances, staking, and cryptographic operations.
 
-## Prerequisites
+---
 
-You need the following installed on your development machine:
+## 💜 Support Development
 
-* [git](https://git-scm.com/downloads)
-* Node.js and pnpm. Minimum version Node 18. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  pnpm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+If you like this node and want to support its continued development, you can donate to the following addresses:
 
-## Using this starter
+- **SOL:** `9XSkMzfD6FapMwcCYzfyZSjQ1R3bjpUB4txLm2DPco8P`  
+- **ETH:** `0x439AbA3e33a9FBf9b41954724248E6965C459a68`  
+- **BTC:** `bc1qd04tgjdt0mmhj0ev2cgzrjear5mvkpvp9mfl5h`
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+Thank you! 🙏
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `pnpm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `pnpm lint` to check for errors or `pnpm lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+---
 
-## More information
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)  
+[Compatibility](#compatibility)  
+[Usage](#usage)  
+[Resources](#resources)  
+[Version history](#version-history)  
 
-## License
+---
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+## Installation
+
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
+
+```bash
+npm install n8n-nodes-solanaoperations
+```
+
+Then restart your n8n instance.
+
+---
+
+## Operations
+
+This node currently supports the following operations:
+
+- ✅ **Send SOL** – Transfer native SOL tokens to another wallet  
+- ✅ **Send Token** – Transfer SPL tokens to another address  
+- ✅ **Get Balance** – Check SOL balance of an address  
+- ✅ **Get Token Balance** – Retrieve the SPL token balance  
+- ✅ **Get Multiple Token Balances** – Check multiple token balances in one go  
+- ✅ **Get Transaction Details** – Fetch information of a specific transaction  
+- ✅ **Get Account Info** – Inspect raw Solana account data  
+- ✅ **Create Wallet** – Generate a new keypair (public/private)  
+- ✅ **Sign Message** – Cryptographically sign messages using your wallet  
+- ✅ **Verify Signature** – Verify if a signature is valid  
+- ✅ **Stake SOL** – Create a stake account and delegate SOL to a validator  
+- ✅ **Withdraw Stake** – Withdraw staked SOL from a stake account  
+
+**Bonus**  
+A special option is included for **donating 1% of the transaction amount to the dev team**. This is enabled by default on `Send SOL` operations, but users can disable it as needed.
+
+---
+
+## Credentials
+
+This node uses a custom credential type named **Solana API**, requiring:
+
+- **Private Key** – A base58-encoded private key (do not share!)
+- **RPC URL** – The Solana cluster URL (e.g., https://api.mainnet-beta.solana.com)
+
+Make sure your wallet is funded and the RPC is reachable.
+
+---
+
+## Compatibility
+
+- ✅ Tested on n8n `1.83.2` (self-hosted)  
+- ✅ Compatible with Mainnet, Devnet, and Testnet  
+- ⚠️ No additional external API integrations required  
+
+---
+
+## Usage
+
+You can use this node to:
+
+- Automate token transfers for on-chain payments  
+- Build NFT or DeFi workflows  
+- Monitor balances or stake SOL  
+- Sign and verify messages for authentication or off-chain operations  
+
+Great for Solana-based dApps or backend workflows needing secure wallet interactions.
+
+---
+
+## Resources
+
+* [n8n Community Nodes Documentation](https://docs.n8n.io/integrations/community-nodes/)
+* [Solana Developer Docs](https://solana.com/developers)
+* [Solana JSON-RPC Reference](https://docs.solana.com/developing/clients/jsonrpc-api)
+
+---
+
+## Version history
+
+| Version | Changes |
+|--------|---------|
+| 0.1.0  | Initial release: SOL + token transfers, staking, balances, wallet ops, message signing, and donation feature |
