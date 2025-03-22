@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-solanaoperations",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "A custom n8n node to interact with the Solana blockchain. Supports sending SOL and tokens, wallet creation, balance checks, staking, and cryptographic operations.",
   "keywords": [
     "n8n-community-node-package",
@@ -22,7 +22,7 @@
     "type": "git",
     "url": "https://github.com/BrokenWatchCEO/n8n-nodes-solanaoperations.git"
   },
-  "main": "index.js",
+  "main": "dist/nodes/SolanaOperations/SolanaOperations.node.js",
   "scripts": {
     "build": "tsc && gulp build:icons",
     "dev": "tsc --watch",
@@ -37,10 +37,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/SolanaApi.credentials.ts"
+      "dist/credentials/SolanaApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/SolanaOperations/SolanaOperations.node.ts"
+      "dist/nodes/SolanaOperations/SolanaOperations.node.js"
     ]
   },
   "devDependencies": {

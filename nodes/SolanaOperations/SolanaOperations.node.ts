@@ -28,7 +28,7 @@ export class SolanaOperations implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Solana',
 		name: 'solanaOperations',
-	
+		icon: 'file:SolanaOperations.svg',
 		
 		group: ['transform'],
 		version: 1,
